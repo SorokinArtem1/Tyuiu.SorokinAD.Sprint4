@@ -66,7 +66,17 @@ namespace Tyuiu.SorokinAD.Sprint4.Task4.V6
 
             int[,] res = ds.Calculate(mtrx);
 
-            Console.WriteLine("Матрица с нулями вместо нечетных чисел = " + res);
+
+            Console.WriteLine("Матрица с нулями вместо нечетных чисел: " );
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{res[i, j]}\t");
+
+                }
+                Console.WriteLine();
+            }
             Console.ReadKey();
         }
     }
