@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tyuiu.SorokinAD.Sprint4.Task6.V7.Lib;
+using Tyuiu.SorokinAD.Sprint4.Task7.V5.Lib;
 
-namespace Tyuiu.SorokinAD.Sprint4.Task6.V7
+namespace Tyuiu.SorokinAD.Sprint4.Task7.V5
 {
     class Program
     {
         static void Main(string[] args)
         {
             DataService ds = new DataService();
+            int rows = 3;
+            int columns = 3;
+            int[,] mtrx = new int[rows, columns];
+            string str = "246813579";
 
             Console.Title = "Спринт #4| Выполнил: Сорокин А. Д. | ИИПб-23-2";
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #4                                                               *");
             Console.WriteLine("* Тема: Использование операторов continue и break в циклах                *");
-            Console.WriteLine("* Задание #6                                                              *");
-            Console.WriteLine("* Вариант #7                                                             *");
+            Console.WriteLine("* Задание #7                                                              *");
+            Console.WriteLine("* Вариант #5                                                             *");
             Console.WriteLine("* Выполнил Сорокин А. Д. | ИИПб-23-2                                      *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
@@ -30,28 +34,31 @@ namespace Tyuiu.SorokinAD.Sprint4.Task6.V7
             Console.WriteLine("***************************************************************************");
 
 
-            var week = new string[] { "Математика", "Физика", "Химия", "Биология", "География", "История", "Экономика" };
 
-            Console.WriteLine("Исходный массив: ");
-            for (int i = 0; i <= week.Length - 1; i++)
+
+            int index = 0;
+            Console.WriteLine("\nМассив:");
+            for (int i = 0; i < rows; i++)
             {
-                Console.WriteLine(week[i]);
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{str[index]} \t");
+                    index++;
+                }
+                Console.WriteLine();
             }
-
-
+            Console.WriteLine();
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Резльтат                                                                *");
             Console.WriteLine("***************************************************************************");
 
 
+            int res = ds.Calculate(rows, columns, str);
+            Console.WriteLine("Количество четных элемантов = " + res);
 
 
-            int nums = ds.Calculate(week);
-            Console.WriteLine("Количество слов, длина которых больше 8 букв = " + nums);
             Console.ReadKey();
-
-
         }
     }
 }
